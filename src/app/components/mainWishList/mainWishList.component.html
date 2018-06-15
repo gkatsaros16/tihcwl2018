@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col s4">
+        Rank
+    </div>
+    <div class="col s4">
+        Band
+    </div>
+    <div class="col s4">
+        Votes
+    </div>
+</div>
+<div class="row" *ngFor="let band of allBands; let i = index;"> 
+    <div class="col s4">
+        {{i + 1}}
+    </div>
+    <div class="col s4">
+        {{band.name}}
+    </div>
+    <div class="col s4">
+        {{band.votes}}
+    </div>
+</div>
