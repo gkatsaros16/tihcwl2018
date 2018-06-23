@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./editWishList.component.css']
 })
 export class EditWishListComponent {
-  wishList = ['']
+  wishList = ['band']
+
+  addBand() {
+    this.wishList.push('band');
+  }
+
+  removeBand(item) {
+    var index = this.wishList.indexOf(item);
+    if (index > -1) {
+      this.wishList.splice(index, 1);
+    }
+  }
 }
