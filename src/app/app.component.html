@@ -2,7 +2,14 @@
 
 <main class="container">
   <router-outlet></router-outlet>
+  <ul>
+      <li *ngFor="let item of items | async">
+         {{ item.name | json }}
+      </li>
+    </ul>
 </main>
+
+
 
 <app-footer></app-footer>
 
