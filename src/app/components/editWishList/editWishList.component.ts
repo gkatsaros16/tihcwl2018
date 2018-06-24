@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-wish-list',
@@ -7,17 +8,23 @@ import { AngularFireDatabase } from 'angularfire2/database';
   styleUrls: ['./editWishList.component.css']
 })
 export class EditWishListComponent {
-  itemsRef;
+  wlRef;
+  model = {};
+
   constructor(db: AngularFireDatabase) {
-    this.itemsRef = db.list('wl');
+    //get specifc wl by username
+    this.wlRef = db.object('/wl').valueChanges();
   }
-  wishList = ['chucky']
+
+  wishList = ['']
 
   addBand() {
     this.wishList.push('');
   }
-  save() {
-    this.itemsRef.push(this.wishList)
+
+  save(wishList: NgForm) {
+    //use username as key
+    this.wlRef.update({ 'george':  wishList.value });
   }
 
   removeBand(item) {

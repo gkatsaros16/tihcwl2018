@@ -3,18 +3,20 @@
     <div>
       <h3>Your Wish List:</h3>
     </div>
-    <form>
+    <form #wishListForm="ngForm" (ngSubmit)="save(wishListForm)">
       <div class="row" style="position:relative;" *ngFor="let band of wishList; let i = index">
         <div class="input-field col s12">
           <label for="band">Band {{ i + 1}}:</label>
-          <input id="band" type="text" class="validate">
+          <input id="band" ngModel name="band{{i}}"type="text" class="validate">
         </div>
         <i class="material-icons coral" (click)="removeBand(value)" style="position:absolute;right:8px;bottom:29px;cursor:pointer;">remove_circle_outline</i>
       </div>
       <button class="btn waves-effect waves-light" (click)="addBand()" type="button">Add Band
           <i class="material-icons right">playlist_add</i>
       </button>
+      <button type="submit">Save</button>
     </form>
+    
   </div>
   <div class="col s6">
       <h3></h3>
