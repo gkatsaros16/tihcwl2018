@@ -8,8 +8,5 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  items: Observable<any[]>;
-  constructor(db: AngularFireDatabase) {
-    this.items = db.list('items').valueChanges();
-  }
+  
 }
