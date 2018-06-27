@@ -4,7 +4,7 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a href="/">Home</a></li>
       <li><a href="/wishListWall">Wish List Wall</a></li>
-      <li *ngIf="afAuth.user | async as user;"><a routerLink="/editWishList" routerLinkActive="active">Your Wish List</a></li>
+      <li *ngIf="afAuth.user | async as user;"><a routerLink="/editWishList" routerLinkActive="active">Your Wish List </a></li>
       <li *ngIf="afAuth.user | async as user;"><a routerLink="/settings">Settings</a></li> 
       <li *ngIf="afAuth.user | async as user; else showLogin">       
         <a href="#" (click)="logout()">Logout</a>
